@@ -1,0 +1,11 @@
+html{
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+#chosen-color{
+    width: 51px;
+    height: 34px;
+    border: 0.5px solid;
+}
