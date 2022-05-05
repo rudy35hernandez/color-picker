@@ -9,3 +9,13 @@ html{
     height: 34px;
     border: 0.5px solid;
 }
+
+#selector{
+    width: 312px;
+    height: 42px
+}
+
+#display-color{
+    display: flex;
+    justify-content: space-evenly;
+}
