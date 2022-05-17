@@ -29,28 +29,37 @@ document.getElementById("chosen-color").addEventListener("input", function(e){
 })
 
 document.getElementById("selector").addEventListener("input", function(e){
-
+    e.preventDefault()
     schemeMode = e.target.value
-    alert(schemeMode)
+    fetch(`https://www.thecolorapi.com/scheme?hex=${cleanColor}&mode=${schemeMode}`)
+    .then(request => request.json())
+    .then(data => {
+        // let html = ""
+        for(let i = 0; i < data.colors.length; i++){
+                colorCombo.push(data.colors[i].hex.value)
+                console.log(colorCombo)
+        } 
+    })
 
 })
 
-document.getElementById("color-scheme").addEventListener("click", function(){
-    let selectedColor
-    fetch(`https://www.thecolorapi.com/scheme?hex=${cleanColor}&mode=${schemeMode}`)
-        .then(request => request.json())
-        .then(data => {
+
+document.getElementById("color-scheme").addEventListener("click", function(e){
+    e.preventDefault()
+    // fetch(`https://www.thecolorapi.com/scheme?hex=${cleanColor}&mode=${schemeMode}`)
+    //     .then(request => request.json())
+    //     .then(data => {
             let html = ""
-            for(let i = 0; i < data.colors.length; i++){
-                    selectedColor = data.colors[i].hex.value
+            for(let i = 0; i < colorCombo.length; i++){
                     html += `
-                    <div class="color"> 
-                    <p> ${selectedColor}
+                    <div class="color" style="background-color: ${colorCombo[i]}"> 
+                    <p> ${colorCombo[i]}
                     </div>
                     `
-                }
-            document.querySelector('.color').style.backgroundColor = "#550355"
-            document.getElementById("display-color").innerHTML = html
-        })
+            }
+                document.getElementById("display-color").innerHTML = html
+
+                colorCombo = []
+                console.log(colorCombo)
         
 })
