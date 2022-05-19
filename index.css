@@ -17,9 +17,13 @@ html{
 
 #display-color{
     display: flex;
+    flex-direction: row;
     justify-content: space-evenly;
+    
 }
 
-.color{
 
+.color{
+    height: 70vh;
+    width: 320px;
 }
