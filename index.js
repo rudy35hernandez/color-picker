@@ -65,12 +65,12 @@ document.getElementById("color-scheme").addEventListener("click", function(e){
             let html = ""
             for(let i = 0; i < colorCombo.length; i++){
                     html += `
-                    <div>
+                    <div class="container">
                     <div class="color" style="background-color: ${colorCombo[i]}"></div>
                     <p> ${colorCombo[i]} </p>
                     </div>
                    
-                    `
+                    ` 
             }
                 document.getElementById("display-color").innerHTML = html
         })

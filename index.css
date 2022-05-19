@@ -22,8 +22,14 @@ html{
     
 }
 
+.container {
+    text-align: center;
+    width: 320px;
+}
+
 
 .color{
     height: 70vh;
-    width: 320px;
+    /* width: 320px; */
+    border-right: 0.4px solid
 }
